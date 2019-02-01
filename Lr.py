@@ -29,7 +29,7 @@ def LrCostFunc(Theta, inputs, labels, lamda=0):
 def sigmoid(x):
 	return 1/(1 + np.exp(-x))
 
-def trainLr(X, y, r_lambda=0, iterations=12500, lr=0.00019):
+def trainLr(X, y, r_lambda=0):
 	ini_theta = np.zeros(3, dtype='int')
 
 	print('\n Executing optimization........\n')
@@ -38,7 +38,7 @@ def trainLr(X, y, r_lambda=0, iterations=12500, lr=0.00019):
 
 	# result = opt.fmin_tnc(func = LrCostFunc, x0 = ini_theta, args=(X, y))
 
-	return (result)
+	return (result.x, result.fun)
 
 
 data = pd.read_csv('data.txt', header=None)
@@ -77,12 +77,12 @@ print('Gradient at test theta: \n',grad);
 print('Expected gradients (approx):\n 0.043\n 2.566\n 2.647\n')
 
 
-Theta = trainLr(X, y)
+Theta, J = trainLr(X, y)
 
 print('=================================')
-print('Cost at theta found : \n', Theta.fun);
+print('Cost at theta found : \n', J);
 print('\nExpected cost (approx): 0.203\n');
-print('\ntheta: \n',Theta.x);
+print('\ntheta: \n',Theta);
 print('\nExpected theta (approx):\n');
 print(' -25.161\n 0.206\n 0.201\n');
 
