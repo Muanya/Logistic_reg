@@ -34,9 +34,9 @@ def trainLr(X, y, r_lambda=0):
 
 	print('\n Executing optimization........\n')
 
-	result = opt.minimize(LrCostFunc, ini_theta, args=(X,y), method='TNC',jac=True, options={'maxiter':400})
+	result = opt.minimize(LrCostFunc, ini_theta, args=(X,y, r_lambda), method='TNC',jac=True, options={'maxiter':400})
 
-	# result = opt.fmin_tnc(func = LrCostFunc, x0 = ini_theta, args=(X, y))
+	# result = opt.fmin_tnc(func = LrCostFunc, x0 = ini_theta, args=(X, y, r_lambda))
 
 	return (result.x, result.fun)
 
