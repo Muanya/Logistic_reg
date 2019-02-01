@@ -31,7 +31,6 @@ def sigmoid(x):
 
 def trainLr(X, y, r_lambda=0, iterations=12500, lr=0.00019):
 	ini_theta = np.zeros(3, dtype='int')
-	print(ini_theta.shape)
 
 	print('\n Executing optimization........\n')
 
@@ -39,13 +38,6 @@ def trainLr(X, y, r_lambda=0, iterations=12500, lr=0.00019):
 
 	# result = opt.fmin_tnc(func = LrCostFunc, x0 = ini_theta, args=(X, y))
 
-
-	# for iters in range(iterations):
-	# 	(J, grad) = LrCostFunc(X, y, ini_theta, r_lambda)
-	# 	ini_theta -= lr * grad
-	# 	J_list.append(J)
-
-	# return (ini_theta, J_list)
 	return (result)
 
 
